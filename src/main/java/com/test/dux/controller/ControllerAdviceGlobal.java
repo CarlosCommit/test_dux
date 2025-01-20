@@ -6,6 +6,7 @@ import com.test.dux.exception.TeamNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -43,7 +44,9 @@ public class ControllerAdviceGlobal {
         errorResponse.setMensaje("La solicitud es invalida");
         return ResponseEntity.badRequest().body(errorResponse);
     }
-    @ExceptionHandler(Exception.class)
+
+
+    @ExceptionHandler({Exception.class , DataAccessException.class})
     public ResponseEntity<ErrorResponse> handlerException(Exception ex) {
         log.error("error: {}",ex.getMessage(),ex);
         ErrorResponse errorResponse = new ErrorResponse();
@@ -51,4 +54,6 @@ public class ControllerAdviceGlobal {
         errorResponse.setMensaje("Ocurrio un error inesperado");
         return ResponseEntity.internalServerError().body(errorResponse);
     }
+
+
 }
