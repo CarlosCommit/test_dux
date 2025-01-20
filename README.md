@@ -14,3 +14,4 @@ Este repositorio contiene la solución para la prueba técnica de Dux Software. 
 - **Mockito**: Framework para realizar mocks en las pruebas unitarias.
 - **Docker**: La aplicación se encuentra contenerizada para facilitar su ejecución.
 
+## SWAGGER PATH :  /swagger-ui/index.html
