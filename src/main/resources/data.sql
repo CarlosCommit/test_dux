@@ -1,0 +1,1 @@
+INSERT INTO users (username,password,rol) values ('test','12345','ADMIN');
